@@ -1,18 +1,22 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void Myreverse(string str);
+string Myreverse(string str,int ind,string ans);
 int main(){
-    string str="uiqhvv"; int ind=str.size()-1; 
-    Myreverse(str);
+    string str="Abhishek"; int ind=0; string ans="";
+    str=Myreverse(str,ind,ans);
+    cout<<str<<" ";
     return 0;
 }
 
-void  Myreverse(string str){
-  //basse cases
-  if(str.size()==0)return ;
-  //hypotheis
-  cout<<str[str.size()-1];
-  str.pop_back();
-  Myreverse(str);
+string Myreverse(string str,int ind,string ans){
+    //base cases
+    if(ind>=str.size())return ans;
+    //hypothesis
+    char dummy=str[ind];
+    dummy=dummy;
+    ans+=Myreverse(str,ind+1,ans);
+    //induction
+    ans+=dummy;
+    return ans;
 }
